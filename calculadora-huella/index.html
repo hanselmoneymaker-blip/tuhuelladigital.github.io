@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Huella Ecológica - Calculadora</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Tu Huella Ecológica 🌱</h1>
+            <p>Descubre tu impacto ambiental real. Calcula, compara y reduce tu huella ecológica con datos precisos y recomendaciones personalizadas basadas en tu consumo actual.</p>
+            <button onclick="document.getElementById('calculator-section').scrollIntoView()">Calcular mi huella ahora</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="calculator-section" class="calculator-section">
+            <h2>Calcula Tu Huella en 3 Pasos</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <h3>Paso 1: Ingresa tu Consumo</h3>
+                    <p>Completa con tus datos mensuales o porcentajes de consumo. Usaremos factores de emisión promedio para el cálculo.</p>
+                </div>
+                <div class="step">
+                    <h3>Paso 2: Generamos tu Perfil</h3>
+                    <p>El algoritmo procesa tus datos y calcula tu huella total en <strong>hectáreas globales (hag)</strong> con un desglose detallado por categoría.</p>
+                </div>
+                <div class="step">
+                    <h3>Paso 3: Recibe Recomendaciones</h3>
+                    <p>Compara tu resultado con el promedio mundial (<strong>2.7 hag</strong>) y obtén una acción personalizada.</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="calculator-form-container">
+                <form id="footprint-form">
+                    <div class="input-group">
+                        <label for="energia">⚡ Energía (Electricidad del hogar, kWh/mes):</label>
+                        <input type="number" id="energia" value="250" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="agua">💧 Agua (Consumo doméstico, metros cúbicos/mes):</label>
+                        <input type="number" id="agua" value="10" min="0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="transporte">🚗 Transporte (Kilómetros recorridos en coche/mes):</label>
+                        <input type="number" id="transporte" value="800" min="0" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="alimentacion">🥩 Alimentación (% de consumo de carne y lácteos):</label>
+                        <select id="alimentacion" required>
+                            <option value="40">Alto (Carnes/lácteos casi a diario)</option>
+                            <option value="25" selected>Medio (Carne/lácteos 3-4 veces por semana)</option>
+                            <option value="10">Bajo (Vegetariano o Vegano)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="calculate-btn">Calcular mi Huella Ecológica</button>
+                </form>
+
+                <div id="results-container" class="results-container" style="display:none;">
+                    <h3>Resultados de tu Huella Ecológica</h3>
+                    <p class="hag-result">Tu huella total es de: <span id="total-hag"></span> <strong>hag</strong></p>
+                    <p class="comparison-result" id="comparison-text"></p>
+                    
+                    <h4>Desglose por Pilares</h4>
+                    <ul id="breakdown-list">
+                        <li>⚡ Energía: <span id="energy-hag"></span> hag</li>
+                        <li>💧 Agua: <span id="water-hag"></span> hag</li>
+                        <li>🚗 Transporte: <span id="transport-hag"></span> hag</li>
+                        <li>🥩 Alimentación: <span id="food-hag"></span> hag</li>
+                    </ul>
+
+                    <div id="recommendation">
+                        <h4>Recomendación Personalizada</h4>
+                        <p id="recommendation-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="global-comparison">
+            <h2>Comparativas Globales: Contexto Real</h2>
+            <p class="intro-text">
+                La realidad es clara: el consumo promedio global (<strong>2.7 hag</strong>) supera la capacidad biológica de la Tierra (<strong>1.7 hag</strong> per cápita). Necesitamos reducir drásticamente nuestro impacto.
+            </p>
+            <p>
+                El resultado de tu huella se compara con estos valores.
+            </p>
+            <div class="comparison-data">
+                <ul>
+                    <li><strong>Capacidad planetaria:</strong> 1.7 hag</li>
+                    <li><strong>Promedio mundial:</strong> 2.7 hag</li>
+                    <li><strong>Ciudadano europeo típico:</strong> ~4.7 hag</li>
+                    <li><strong>Ciudadano estadounidense:</strong> ~8.5 hag</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="action-section">
+            <h2>Acciones Efectivas Comprobadas</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <h3>Reducir Consumo de Carne</h3>
+                    <p>Cada día vegetariano ahorra <strong>~0.2 hag anuales</strong>.</p>
+                </div>
+                <div class="action-card">
+                    <h3>Optimizar Transporte</h3>
+                    <p>Usar transporte público 5 días/semana ahorra <strong>~1 hag anualmente</strong>.</p>
+                </div>
+                <div class="action-card">
+                    <h3>Cambiar a Energía Renovable</h3>
+                    <p>Instalar paneles solares puede ahorrar hasta <strong>~1.2 hag anuales</strong>.</p>
+                </div>
+                <div class="action-card">
+                    <h3>Ahorrar Agua Consciente</h3>
+                    <p>Duchas cortas y grifos eficientes ahorran **~0,3 hag/año**.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>La ecuación es simple: conocimiento + acción = impacto. Juntos construimos un planeta habitable.</p>
+        <button onclick="document.getElementById('calculator-section').scrollIntoView()">Comenzar mi transformación</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
